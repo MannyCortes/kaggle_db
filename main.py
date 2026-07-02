@@ -16,8 +16,9 @@ def main():
         path = kagglehub.dataset_download("sharmajicoder/amazon-e-commerce")
         #return a pandas df
         df = data_pipeline.pandas_df(path)
-        print(df)
+        df = data_pipeline.optimize_memory(df)
+        df = data_pipeline.regex_cleaning(df)
     except Exception as e:
-        logging.
+        logging.error(f"An error occurred: {e}")
 if __name__ == "__main__":
     main()

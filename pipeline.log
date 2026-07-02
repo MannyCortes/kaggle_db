@@ -1,0 +1,27 @@
+2026-07-01 19:40:52,038 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 19:43:01,498 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 19:43:01,505 - ERROR - An error occurred: 'col'
+2026-07-01 19:47:16,844 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:25:48,846 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:25:49,245 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:25:49,312 - ERROR - An error occurred: 'NoneType' object has no attribute 'info'
+2026-07-01 21:26:44,661 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:26:44,956 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:26:45,051 - ERROR - An error occurred: 'NoneType' object has no attribute 'info'
+2026-07-01 21:27:18,731 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:27:19,024 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:27:53,079 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:27:53,080 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:27:53,157 - ERROR - An error occurred: 'NoneType' object has no attribute 'info'
+2026-07-01 21:29:32,472 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:29:32,474 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:29:32,529 - ERROR - An error occurred: 'NoneType' object has no attribute 'info'
+2026-07-01 21:29:47,618 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:29:47,619 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:29:47,676 - ERROR - An error occurred: 'NoneType' object has no attribute 'info'
+2026-07-01 21:30:08,510 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:30:08,512 - ERROR - An error occurred during memory optimization: 'col'
+2026-07-01 21:31:35,648 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:31:37,668 - ERROR - An error occurred during memory optimization: 'numpy.dtypes.Float64DType' object has no attribute 'lower'
+2026-07-01 21:34:16,242 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-01 21:34:52,150 - INFO - Dataframe created with shape: (1000000, 20)
