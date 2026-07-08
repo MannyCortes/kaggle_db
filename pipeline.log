@@ -25,3 +25,9 @@
 2026-07-01 21:31:37,668 - ERROR - An error occurred during memory optimization: 'numpy.dtypes.Float64DType' object has no attribute 'lower'
 2026-07-01 21:34:16,242 - INFO - Dataframe created with shape: (1000000, 20)
 2026-07-01 21:34:52,150 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-03 19:23:34,119 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-03 19:26:27,339 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-03 22:31:47,977 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-03 22:31:50,311 - ERROR - An error occurred: Can only use .str accessor with string values!
+2026-07-03 22:48:00,981 - INFO - Dataframe created with shape: (1000000, 20)
+2026-07-03 22:48:18,671 - INFO - Dataframe created with shape: (1000000, 20)
