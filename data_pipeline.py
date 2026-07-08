@@ -4,7 +4,7 @@ import logging
 import numpy  as np
 import pandas as pd
 regex_schema = {
-    # --- Identifiers (Strict Alphanumeric Constraints) ---
+    # Strict Alphanumeric Constraints
     'user_id': r'^U\d{6}$',             
     'product_id': r'^P\d{5}$',          
     'seller_id': r'^S\d{4}$',           
@@ -14,13 +14,13 @@ regex_schema = {
     'delivery_status': r'^(Returned|In Transit|Delayed|Delivered)$',
     'is_returned': r'^(True|False)$',
 
-    # --- Free Text (Sanitization) ---
-    'category': r'^[A-Za-z\s]+$',       # Only letters and spaces, no weird symbols
+    #Free Text
+    'category': r'^[A-Za-z\s]+$',       #Only letters and spaces, no weird symbols
     'subcategory': r'^[A-Za-z\s]+$', 
-    'brand': r'^[A-Za-z0-9\s&]+$',      # Must allow '&' specifically for "H&M"
+    'brand': r'^[A-Za-z0-9\s&]+$',      #Must allow '&' specifically for "H&M"
     'location': r'^[A-Za-z\s]+$',
 
-    # --- Numerics (Preventing String Corruptions) ---
+    #Numerics
     'price': r'^\d+(\.\d{1,2})?$',      # Positive numbers, optional max 2 decimal places
     'discount': r'^\d+(\.\d{1,2})?$',   
     'final_price': r'^\d+(\.\d{1,2})?$',
@@ -28,11 +28,11 @@ regex_schema = {
     'stock': r'^\d+$',                  
     'shipping_time_days': r'^\d+$',     
 
-    # --- Bounded Numerics (Logic Checking) ---
+    #Bounded Numerics
     'rating': r'^([0-4](\.\d)?|5(\.0)?)$',       # Strictly limits ratings to 0.0 through 5.0
     'seller_rating': r'^([0-4](\.\d)?|5(\.0)?)$',
 
-    # --- Dates (ISO 8601 Standard) ---
+    #Dates 
     'purchase_date': r'^\d{4}-\d{2}-\d{2}$'      # Must match YYYY-MM-DD
 }
 def pandas_df(folder_path):
@@ -49,10 +49,10 @@ def pandas_df(folder_path):
             #create new file path joining folder+file
             final_path = os.path.join(folder_path, file_name)
             #read the csv file into a pandas dataframe using the specified columns
-            df = pd.read_csv(final_path, usecols=cols, dtype=str)
+            df_container = pd.read_csv(final_path, usecols=cols, dtype=str, chunksize=10000)
             #where keeps whatever returns true and replaces false with None
-            logging.info(f"Dataframe created with shape: {df.shape}")
-    return df
+            logging.info(f"Dataframe created")
+    return df_container
 
 def regex_cleaning(df):
     #create a bool mask and start all True
@@ -61,7 +61,7 @@ def regex_cleaning(df):
     #np.ones creates a memory block of 1s,meaning true
     is_valid_mask=np.ones(len(df), dtype=bool)
     # PANDAS NOTES, masking using boolean logic, and using & oopperand to create a copy of the data frame
-
+    #utilizes dict to pair column names and regex patterns
     for col, pattern in regex_schema.items():
         if col in df.columns:
         #using pandas&regex allows for column by column checking rather than python looping through every row
