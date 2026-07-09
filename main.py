@@ -19,8 +19,8 @@ def main():
         for chunk in df_container:
             df = data_pipeline.regex_cleaning(chunk)
             df = data_pipeline.optimize_memory(df)
-            session = db_sub.initialize_db()
-            print(df.info())
+            engine = db_sub.initialize_db()
+            db_sub.load_data_to_db(engine, df)
     except Exception as e:
         logging.error(f"An error occurred: {e}")
 if __name__ == "__main__":

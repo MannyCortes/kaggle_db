@@ -1,4 +1,5 @@
 import os 
+import gc
 import datetime as dt
 import logging
 import numpy  as np
@@ -78,6 +79,8 @@ def regex_cleaning(df):
     'review_count', 'stock', 'shipping_time_days',
     'seller_rating'
     ]
+    del df
+    gc.collect()  # Force garbage collection to free up memory
     for col in numeric_columns:
         #convert each data type back into their respective types
         if col in clean_data.columns:
@@ -86,6 +89,8 @@ def regex_cleaning(df):
     if len(quarantined_data) > 0:
         logging.warning(f"Quarantined {len(quarantined_data)} rows due to regex validation failure.")
         quarantined_data.to_csv("quarantined_data.csv", date_format=dt.datetime.now(), index=False)
+        del quarantined_data
+        gc.collect()
     return clean_data
 
 def optimize_memory(df):
