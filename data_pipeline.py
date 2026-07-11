@@ -72,6 +72,7 @@ def regex_cleaning(df):
             is_valid_mask = is_valid_mask & valid_col
         #if a single col contains false the  whole row is false.
         #COPY is needed since pandas creates a view(pointer) of the original dataframe, and if you try to modify it you will get a warning.
+        #the mask is in a numpy array format, needs to convert to df
     clean_data = df[is_valid_mask].copy()
     quarantined_data = df[~is_valid_mask].copy()
     numeric_columns = [
